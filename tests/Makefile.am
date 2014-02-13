@@ -4,7 +4,7 @@ test_typelibs = GIMarshallingTests-1.0.typelib
 
 nodist_libgimarshallingtests_la_SOURCES = $(GI_DATADIR)/tests/gimarshallingtests.c $(GI_DATADIR)/tests/gimarshallingtests.h
 libgimarshallingtests_la_CFLAGS = $(GLIB_CFLAGS)
-libgimarshallingtests_la_LDFLAGS = -module -avoid-version $(GLIB_LIBS)
+libgimarshallingtests_la_LDFLAGS = -all-static -avoid-version $(GLIB_LIBS)
 
 # This is a hack to make sure a shared library is built
 libgimarshallingtests.la: $(libgimarshallingtests_la_OBJECTS) $(libgimarshallingtests_la_DEPENDENCIES)
@@ -27,7 +27,7 @@ check_LTLIBRARIES += libregress.la
 test_typelibs += Regress-1.0.typelib
 nodist_libregress_la_SOURCES = $(GI_DATADIR)/tests/regress.c $(GI_DATADIR)/tests/regress.h
 libregress_la_CFLAGS = $(GIO_CFLAGS) $(CAIRO_CFLAGS)
-libregress_la_LDFLAGS = -module -avoid-version $(GIO_LIBS) $(CAIRO_LIBS)
+libregress_la_LDFLAGS = -all-static -avoid-version $(GIO_LIBS) $(CAIRO_LIBS)
 
 libregress.la: $(libregress_la_OBJECTS) $(libregress_la_DEPENDENCIES)
 	$(AM_V_GEN) $(LINK) -rpath $(pkgpyexecdir) $(libregress_la_LDFLAGS) $(libregress_la_OBJECTS) $(libregress_la_LIBADD) $(LIBS)
